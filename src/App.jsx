@@ -1,7 +1,32 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 
-const PDF_URL = "./manuali/MEC5-10-10ESD-20-20P_FR_10-24 rev 04.pdf";
+const MANUALI = [
+  { keys: /mec\s*5\b|mec\s*10(?!\s*0)|mec\s*10\s*esd|mec\s*20\b/i, file: "MEC5-10-10ESD-20-20P_FR_10-24 rev 04.pdf" },
+  { keys: /mec\s*110/i, file: "MEC 110_IT_07_25 rev 1.pdf" },
+  { keys: /mec\s*200|mec.*truck|200.*truck/i, file: "MEC 200 TRUCK - MEC 200A TRUCK - MEC 200 C TRUCK - MEC 200 RLC IT_08_23 Rev 03.pdf" },
+  { keys: /810.*esd|vdbl.*esd/i, file: "MEC 810 VDBL ESD_IT Rev.4_06-23.pdf" },
+  { keys: /mec\s*810|mec\s*820|810\s*vd|820\s*vd|vdbl/i, file: "MEC 810VD-820VD_IT Rev. 3.1 07-19.pdf" },
+  { keys: /mec\s*822|touch.*822|822/i, file: "MEC 822 IT_Rel 01-10_25.pdf" },
+  { keys: /touch.*900|mec\s*900|900/i, file: "TOUCH MEC 900 IT Rel 01-10_25.pdf" },
+  { keys: /moto\s*mec|mec.*moto/i, file: "MOTO MEC_IT_Rev. 4_10_2025.pdf" },
+  { keys: /puma/i, file: "PUMA_IT-UK-FR-DE-ES_Rel.02_02-24.pdf" },
+  { keys: /f\s*535|535s/i, file: "F 535S-F 535S GT_IT_UK_FR_DE_Rel.03_02-24.pdf" },
+  { keys: /f\s*536|536s/i, file: "F 536S GT RACING_IT_UK_FR_DE_Rel.03 02-24.pdf" },
+  { keys: /ligro/i, file: "LIGRO-LIGRO GT_IT_UK_FR_DE_ES_Rel.3 02-24.pdf" },
+  { keys: /cm\s*1200|1200bb/i, file: "CM 1200BB_IT_Rel.02_02-24.pdf" },
+  { keys: /\bb\s*22\b|bike.*22/i, file: "B 22 BIKE_IT-UK-FR-DE_Rel.1 10-24.pdf" },
+  { keys: /\bb\s*124|bike.*124/i, file: "B 124_IT-UK-FR-DE_Rel.03 02-24.pdf" },
+  { keys: /\bb\s*224|bike.*224/i, file: "B 224_IT-UK-FR-DE_Rel.03 02-24.pdf" },
+  { keys: /f\s*24\b|bike.*f24/i, file: "F 24 BIKE_IT-UK-FR-DE_Rel.3 02-24.pdf" },
+  { keys: /f\s*26|bike.*26/i, file: "F 26A BIKE_IT-UK-FR-DE_Rel.03_02-2024.pdf" },
+];
+
+function getPDF(text) {
+  if (!text) return null;
+  const match = MANUALI.find(m => m.keys.test(text));
+  return match ? `./manuali/${match.file}` : null;
+}
 
 const T = {
   it: {
@@ -343,7 +368,8 @@ export default function App() {
   };
 
   const openPDF = () => {
-    window.open(PDF_URL, "_blank", "noopener,noreferrer");
+    const url = getPDF(description) || "./manuali/MEC5-10-10ESD-20-20P_FR_10-24 rev 04.pdf";
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
   const isInfo = result?.tipo === "info" || result?.type === "info";
