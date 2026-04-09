@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 
-const PDF_URL = "./MEC5-10-10ESD-20-20P_FR_10-24_rev_04.pdf";
+const PDF_URL = "./manuali/MEC5-10-10ESD-20-20P_FR_10-24 rev 04.pdf";
 
 const T = {
   it: {
