@@ -33,8 +33,7 @@ body { font-family: var(--sans); -webkit-font-smoothing: antialiased; margin: 0;
 .logo-sub { font-size: 10px; font-family: var(--mono); color: var(--text-3); letter-spacing: 0.16em; margin-top: 2px; }
 .header-actions { display: flex; align-items: center; gap: 8px; }
 .theme-btn { font-size: 18px; background: none; border: 1px solid var(--border-hi); border-radius: var(--radius); padding: 4px 8px; cursor: pointer; line-height: 1; }
-.pdf-header-btn { font-size: 18px; background: none; border: 1px solid var(--border-hi); border-radius: var(--radius); padding: 4px 8px; cursor: pointer; line-height: 1; transition: border-color 0.2s; }
-.pdf-header-btn:hover { border-color: var(--accent); }
+
 .key-btn { font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: 0.12em; padding: 6px 12px; border-radius: var(--radius); border: 1px solid; cursor: pointer; background: none; }
 .key-active { color: var(--green); border-color: var(--green); }
 .key-missing { color: var(--accent); border-color: var(--accent); background: var(--accent-dim); }
@@ -136,8 +135,7 @@ body { font-family: var(--sans); -webkit-font-smoothing: antialiased; margin: 0;
 .copy-btn.copied { background: var(--green); border-color: var(--green); color: #fff; }
 .wa-btn { display: flex; align-items: center; justify-content: center; gap: 7px; padding: 10px 16px; background: #25D366; color: #fff; border: none; border-radius: var(--radius); font-size: 12px; font-weight: 700; cursor: pointer; font-family: var(--mono); letter-spacing: 0.08em; white-space: nowrap; transition: background 0.18s; }
 .wa-btn:hover { background: #1ebe5a; }
-.pdf-btn { display: flex; align-items: center; justify-content: center; gap: 7px; padding: 10px 16px; background: #e74c3c; color: #fff; border: none; border-radius: var(--radius); font-size: 12px; font-weight: 700; cursor: pointer; font-family: var(--mono); letter-spacing: 0.08em; white-space: nowrap; transition: background 0.18s; }
-.pdf-btn:hover { background: #c0392b; }
+
 
 /* CHECKLIST */
 .checklist-card { background: var(--bg-field); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 22px; }
